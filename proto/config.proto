@@ -1,0 +1,21 @@
+syntax = "proto2";
+
+package apollo.drivers.ouster;
+
+import "modules/drivers/ouster/proto/ouster.proto";
+
+message Config {
+  optional Model model = 1;
+  optional string hostname = 2 [default = "192.168.1.67"];
+  optional uint32 lidar_recv_port = 3;
+  optional uint32 imu_recv_port = 4;
+  optional string pointcloud_channel = 5;
+  optional uint32 time_zone = 6;  
+  optional string frame_id = 7;  
+  optional string scan_channel = 8;
+  optional bool is_main_frame = 9;
+  optional string lidar_mode = 10;
+  optional string udp_dest_host = 11;
+  optional string metadata_file = 12;
+}
+
