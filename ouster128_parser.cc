@@ -124,9 +124,9 @@ void Ouster128Parser::ParseLidarPacket(const uint8_t *buf, const int len,
           
           point->set_timestamp(ts.count());
 
-          point->set_x((float)((double)r * (xyz_lut_.direction)(ipx * W + m_id, 0)));
-          point->set_y((float)((double)r * (xyz_lut_.direction)(ipx * W + m_id, 1)));
-          point->set_z((float)((double)r * (xyz_lut_.direction)(ipx * W + m_id, 2)));
+          point->set_x((float)((double)r * (xyz_lut_.direction)(ipx * W + m_id, 0))+(float)(xyz_lut_.offset)(ipx * W + m_id, 0));
+          point->set_y((float)((double)r * (xyz_lut_.direction)(ipx * W + m_id, 1))+(float)(xyz_lut_.offset)(ipx * W + m_id, 1));
+          point->set_z((float)((double)r * (xyz_lut_.direction)(ipx * W + m_id, 2))+(float)(xyz_lut_.offset)(ipx * W + m_id, 2));
 
           point->set_intensity(pf.px_signal_photons(px_buf));
       }
