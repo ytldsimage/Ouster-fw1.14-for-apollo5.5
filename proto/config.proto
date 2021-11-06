@@ -15,7 +15,11 @@ message Config {
   optional string scan_channel = 8;
   optional bool is_main_frame = 9;
   optional string lidar_mode = 10;
-  optional string udp_dest_host = 11;
-  optional string metadata_file = 12;
+  optional string timestamp_mode = 11; //TIME_FROM_INTERNAL_OSC, TIME_FROM_PTP_1588
+  optional string udp_dest_host = 12;
+  optional string metadata_file = 13;
+  optional bool synchronic_time = 14 [default = false];
+  optional int32 offset_time = 15 [default = 0];
+  optional int32 fix_time = 16 [default = -280];  
 }
 
